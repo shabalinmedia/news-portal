@@ -4,12 +4,7 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-// Route.get('/news', ({ view }) => {
-//   return view.render('news/view')
-// })
-
-
-Route.on('/news').render('news.view').as('news.view')
+Route.get('/news', 'ArticlesController.view').as('news.view')
 
 Route.post('/news', ({ response})=> {
   return response.redirect('/news')
