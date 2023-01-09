@@ -5,10 +5,8 @@ Route.get('/', async ({ view }) => {
 })
 
 Route.get('/news', 'ArticlesController.view').as('news.view')
-
-Route.post('/news', ({ response})=> {
-  return response.redirect('/news')
-}).as('news.create')
+Route.get('/news/create', 'ArticlesController.create').as('news.create')
+Route.post('/news', 'ArticlesController.store').as('news.store')
 
 Route.patch('/news/:id', ({ params })=> {
   return {params}
